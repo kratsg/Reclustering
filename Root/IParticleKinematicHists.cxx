@@ -1,14 +1,14 @@
-#include <Reclustering/IParticleKinematicHists.h>
+#include <ReclusteringStudies/IParticleKinematicHists.h>
 
 
-Reclustering::IParticleKinematicHists::IParticleKinematicHists (std::string name) :
+ReclusteringStudies::IParticleKinematicHists::IParticleKinematicHists (std::string name) :
   HistogramManager(name, "")
 {
 }
 
-Reclustering::IParticleKinematicHists::~IParticleKinematicHists () {}
+ReclusteringStudies::IParticleKinematicHists::~IParticleKinematicHists () {}
 
-EL::StatusCode Reclustering::IParticleKinematicHists::initialize() {
+EL::StatusCode ReclusteringStudies::IParticleKinematicHists::initialize() {
   m_pt           = book(m_name, "pt",       m_particleType + " p_{T} [GeV]", 120, 0, 3000.);
   m_eta          = book(m_name, "eta",      m_particleType + " #eta",         80, -4, 4);
   m_phi          = book(m_name, "phi",      m_particleType + " #phi",120, -TMath::Pi(), TMath::Pi() );
@@ -21,7 +21,7 @@ EL::StatusCode Reclustering::IParticleKinematicHists::initialize() {
   return EL::StatusCode::SUCCESS;
 }
 
-EL::StatusCode Reclustering::IParticleKinematicHists::execute( const xAOD::IParticleContainer* particles, float eventWeight ) {
+EL::StatusCode ReclusteringStudies::IParticleKinematicHists::execute( const xAOD::IParticleContainer* particles, float eventWeight ) {
   for( const auto particle : *particles ) {
     this->execute( particle, eventWeight );
   }
@@ -31,7 +31,7 @@ EL::StatusCode Reclustering::IParticleKinematicHists::execute( const xAOD::IPart
   return EL::StatusCode::SUCCESS;
 }
 
-EL::StatusCode Reclustering::IParticleKinematicHists::execute( const xAOD::IParticle* particle, float eventWeight ) {
+EL::StatusCode ReclusteringStudies::IParticleKinematicHists::execute( const xAOD::IParticle* particle, float eventWeight ) {
   //basic
   m_pt ->      Fill( particle->pt()/1e3,    eventWeight );
   m_eta->      Fill( particle->eta(),       eventWeight );

@@ -1,11 +1,11 @@
-#ifndef Reclustering_IParticleKinematicHists_H
-#define Reclustering_IParticleKinematicHists_H
+#ifndef ReclusteringStudies_IParticleKinematicHists_H
+#define ReclusteringStudies_IParticleKinematicHists_H
 
 #include "xAODAnaHelpers/HistogramManager.h"
 //#include "xAODAnaHelpers/HelperClasses.h"
 #include "xAODBase/IParticleContainer.h"
 
-namespace Reclustering
+namespace ReclusteringStudies
 {
   class IParticleKinematicHists : public HistogramManager
   {

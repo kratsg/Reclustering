@@ -1,10 +1,10 @@
-#ifndef Reclustering_JetHists_H
-#define Reclustering_JetHists_H
+#ifndef ReclusteringStudies_JetHists_H
+#define ReclusteringStudies_JetHists_H
 
 #include "xAODAnaHelpers/HistogramManager.h"
 #include "xAODJet/JetContainer.h"
 
-namespace Reclustering
+namespace ReclusteringStudies
 {
   class JetHists : public HistogramManager
   {

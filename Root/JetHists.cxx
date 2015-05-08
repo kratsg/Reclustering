@@ -1,4 +1,4 @@
-#include <Reclustering/JetHists.h>
+#include <ReclusteringStudies/JetHists.h>
 
 // jet definition
 #include <fastjet/JetDefinition.hh>
@@ -6,14 +6,14 @@
 // subjet finding
 #include "JetSubStructureUtils/SubjetFinder.h"
 
-Reclustering::JetHists::JetHists (std::string name) :
+ReclusteringStudies::JetHists::JetHists (std::string name) :
   HistogramManager(name, "")
 {
 }
 
-Reclustering::JetHists::~JetHists () {}
+ReclusteringStudies::JetHists::~JetHists () {}
 
-EL::StatusCode Reclustering::JetHists::initialize() {
+EL::StatusCode ReclusteringStudies::JetHists::initialize() {
   m_massOverPt  = book(m_name, "MOverPt", "#frac{m^{jet}}{p_{T}}", 100, 0, 5);
 
   //topology
@@ -36,7 +36,7 @@ EL::StatusCode Reclustering::JetHists::initialize() {
   return EL::StatusCode::SUCCESS;
 }
 
-EL::StatusCode Reclustering::JetHists::execute( const xAOD::JetContainer* jets, float eventWeight ) {
+EL::StatusCode ReclusteringStudies::JetHists::execute( const xAOD::JetContainer* jets, float eventWeight ) {
 
   float totalMass(0);
   for(const auto jet: *jets){
@@ -66,7 +66,7 @@ EL::StatusCode Reclustering::JetHists::execute( const xAOD::JetContainer* jets, 
   return EL::StatusCode::SUCCESS;
 }
 
-EL::StatusCode Reclustering::JetHists::execute( const xAOD::Jet* jet, float eventWeight ){
+EL::StatusCode ReclusteringStudies::JetHists::execute( const xAOD::Jet* jet, float eventWeight ){
   static SG::AuxElement::ConstAccessor<float> Tau1("Tau1");
   static SG::AuxElement::ConstAccessor<float> Tau2("Tau2");
   static SG::AuxElement::ConstAccessor<float> Tau3("Tau3");
