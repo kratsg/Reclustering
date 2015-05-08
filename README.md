@@ -1,10 +1,13 @@
 # Reclustering - A RootCore Package
 
+This is a package for studying the xAOD reclustering code being developed by Giordon.
+
 ## Installing
 The last stable analysis base used is **2.1.30**. To install,
 ```bash
 rcSetup Base,2.1.30
 git clone https://github.com/kratsg/Reclustering.git
+git clone https://github.com/kratsg/xAODJetReclustering.git
 rc checkout_pkg atlasinst/Institutes/UChicago/xAODAnaHelpers/tags/xAODAnaHelpers-00-00-04
 source xAODAnaHelpers/scripts/ElectronEfficiencyCorrectionPatch_Base.2.1.29.sh
 rc checkout_pkg atlasoff/Reconstruction/Jet/JetSubStructureUtils/tags/JetSubStructureUtils-00-02-08
