@@ -38,7 +38,7 @@ Using `xAODAnaHelpers`, we provide an easy way for you to enable jet reclusterin
 you can run the reclustering code and produce a basic output file (by setting `m_outputXAODName`) and running `xAH_run.py input.root  --config config.json`. This is a minimal working example. You can include this in an algorithm chain. If you are on UCTier3, you can run the following example code
 
 ```
-xAH_run.py "/share/t3data3/kratsg/xAODs/mc14_13TeV.2*/*.root*" "/share/t3data3/kratsg/xAODs/mc14_13TeV.1103*/*.root*" --config=recluster.json -f -v
+xAH_run.py "/share/t3data3/kratsg/xAODs/mc14_13TeV.1103*/*.root*" --config=ReclusteringStudies/data/recluster.json -f -v
 ```
 
 with a json configuration file (an example one is found in [data/recluster.json](data/recluster.json)).
