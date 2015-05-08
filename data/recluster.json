@@ -1,6 +1,6 @@
 [
   {
-    "class": "JetReclusteringStudies",
+    "class": "JetReclustering",
     "configs": {
       "m_inputJetName": "AntiKt4LCTopoJets",
       "m_outputJetName": "AntiKt10LCTopoJetsRCAntiKt4LCTopoJets",
@@ -8,7 +8,7 @@
     }
   },
   {
-    "class": "JetReclusteringStudies",
+    "class": "JetReclustering",
     "configs": {
       "m_inputJetName": "AntiKt4LCTopoJets",
       "m_outputJetName": "AntiKt15LCTopoJetsRCAntiKt4LCTopoJets",
@@ -16,7 +16,7 @@
     }
   },
   {
-    "class": "JetReclusteringStudies",
+    "class": "JetReclustering",
     "configs": {
       "m_inputJetName": "AntiKt4LCTopoJets",
       "m_outputJetName": "AntiKt20LCTopoJetsRCAntiKt4LCTopoJets",
