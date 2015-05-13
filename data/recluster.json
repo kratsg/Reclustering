@@ -1,26 +1,29 @@
 [
   {
-    "class": "JetReclustering",
+    "class": "JetReclusteringAlgo",
     "configs": {
-      "m_inputJetName": "AntiKt4LCTopoJets",
-      "m_outputJetName": "AntiKt10LCTopoJetsRCAntiKt4LCTopoJets",
-      "m_radius": 1.0
+      "m_inputJetContainer": "AntiKt4LCTopoJets",
+      "m_outputJetContainer": "AntiKt10LCTopoJetsRCAntiKt4LCTopoJets",
+      "m_radius": 1.0,
+      "m_name": "R10"
     }
   },
   {
-    "class": "JetReclustering",
+    "class": "JetReclusteringAlgo",
     "configs": {
-      "m_inputJetName": "AntiKt4LCTopoJets",
-      "m_outputJetName": "AntiKt15LCTopoJetsRCAntiKt4LCTopoJets",
-      "m_radius": 1.5
+      "m_inputJetContainer": "AntiKt4LCTopoJets",
+      "m_outputJetContainer": "AntiKt15LCTopoJetsRCAntiKt4LCTopoJets",
+      "m_radius": 1.5,
+      "m_name": "R15"
     }
   },
   {
-    "class": "JetReclustering",
+    "class": "JetReclusteringAlgo",
     "configs": {
-      "m_inputJetName": "AntiKt4LCTopoJets",
-      "m_outputJetName": "AntiKt20LCTopoJetsRCAntiKt4LCTopoJets",
-      "m_radius": 2.0
+      "m_inputJetContainer": "AntiKt4LCTopoJets",
+      "m_outputJetContainer": "AntiKt20LCTopoJetsRCAntiKt4LCTopoJets",
+      "m_radius": 2.0,
+      "m_name": "R20"
     }
   },
   {
