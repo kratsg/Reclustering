@@ -3,9 +3,9 @@
 This is a package for studying the xAOD reclustering code being developed by Giordon.
 
 ## Installing
-The last stable analysis base used is **2.1.30**. To install,
+The last stable analysis base used is **2.3.12**. To install,
 ```bash
-rcSetup Base,2.1.30
+rcSetup Base,2.3.12
 git clone https://github.com/kratsg/ReclusteringStudies.git
 git clone https://github.com/kratsg/xAODJetReclustering.git
 rc checkout_pkg atlasinst/Institutes/UChicago/xAODAnaHelpers/tags/xAODAnaHelpers-00-00-04

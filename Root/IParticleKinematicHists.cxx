@@ -8,7 +8,7 @@ ReclusteringStudies::IParticleKinematicHists::IParticleKinematicHists (std::stri
 
 ReclusteringStudies::IParticleKinematicHists::~IParticleKinematicHists () {}
 
-EL::StatusCode ReclusteringStudies::IParticleKinematicHists::initialize() {
+StatusCode ReclusteringStudies::IParticleKinematicHists::initialize() {
   m_pt           = book(m_name, "pt",       m_particleType + " p_{T} [GeV]", 120, 0, 3000.);
   m_eta          = book(m_name, "eta",      m_particleType + " #eta",         80, -4, 4);
   m_phi          = book(m_name, "phi",      m_particleType + " #phi",120, -TMath::Pi(), TMath::Pi() );
@@ -18,20 +18,20 @@ EL::StatusCode ReclusteringStudies::IParticleKinematicHists::initialize() {
 
   if(m_countParticles) m_multiplicity = book(m_name, "multiplicity_particles", "number of " + m_particleType + "s/event", 21, -0.5, 20);
 
-  return EL::StatusCode::SUCCESS;
+  return StatusCode::SUCCESS;
 }
 
-EL::StatusCode ReclusteringStudies::IParticleKinematicHists::execute( const xAOD::IParticleContainer* particles, float eventWeight ) {
+StatusCode ReclusteringStudies::IParticleKinematicHists::execute( const xAOD::IParticleContainer* particles, float eventWeight ) {
   for( const auto particle : *particles ) {
     this->execute( particle, eventWeight );
   }
 
   if(m_countParticles) m_multiplicity->Fill( particles->size(), eventWeight);
 
-  return EL::StatusCode::SUCCESS;
+  return StatusCode::SUCCESS;
 }
 
-EL::StatusCode ReclusteringStudies::IParticleKinematicHists::execute( const xAOD::IParticle* particle, float eventWeight ) {
+StatusCode ReclusteringStudies::IParticleKinematicHists::execute( const xAOD::IParticle* particle, float eventWeight ) {
   //basic
   m_pt ->      Fill( particle->pt()/1e3,    eventWeight );
   m_eta->      Fill( particle->eta(),       eventWeight );
@@ -40,5 +40,5 @@ EL::StatusCode ReclusteringStudies::IParticleKinematicHists::execute( const xAOD
   m_energy->   Fill( particle->e()/1e3,     eventWeight );
   m_rapidity-> Fill( particle->rapidity(),  eventWeight );
 
-  return EL::StatusCode::SUCCESS;
+  return StatusCode::SUCCESS;
 }

@@ -13,7 +13,7 @@ ReclusteringStudies::JetHists::JetHists (std::string name) :
 
 ReclusteringStudies::JetHists::~JetHists () {}
 
-EL::StatusCode ReclusteringStudies::JetHists::initialize() {
+StatusCode ReclusteringStudies::JetHists::initialize() {
   m_massOverPt  = book(m_name, "MOverPt", "#frac{m^{jet}}{p_{T}}", 100, 0, 5);
 
   //topology
@@ -33,10 +33,10 @@ EL::StatusCode ReclusteringStudies::JetHists::initialize() {
     //constituent info
   m_constituents_multiplicity = book(m_name, "constituents/multiplicity", "N_{constituents}", 61, -0.5, 60.5);
   m_constituents_width        = book(m_name, "width", "#frac{1}{p_{T}^{jet}} #Sigma_{i}^{constit} p_{T,i}^{constit} #cdot #Delta R(constit, jet)", 100, 0, 2);
-  return EL::StatusCode::SUCCESS;
+  return StatusCode::SUCCESS;
 }
 
-EL::StatusCode ReclusteringStudies::JetHists::execute( const xAOD::JetContainer* jets, float eventWeight ) {
+StatusCode ReclusteringStudies::JetHists::execute( const xAOD::JetContainer* jets, float eventWeight ) {
 
   float totalMass(0);
   for(const auto jet: *jets){
@@ -63,10 +63,10 @@ EL::StatusCode ReclusteringStudies::JetHists::execute( const xAOD::JetContainer*
   }
   m_totalMass->     Fill( totalMass/1000., eventWeight );
 
-  return EL::StatusCode::SUCCESS;
+  return StatusCode::SUCCESS;
 }
 
-EL::StatusCode ReclusteringStudies::JetHists::execute( const xAOD::Jet* jet, float eventWeight ){
+StatusCode ReclusteringStudies::JetHists::execute( const xAOD::Jet* jet, float eventWeight ){
   static SG::AuxElement::ConstAccessor<float> Tau1("Tau1");
   static SG::AuxElement::ConstAccessor<float> Tau2("Tau2");
   static SG::AuxElement::ConstAccessor<float> Tau3("Tau3");
@@ -110,5 +110,5 @@ EL::StatusCode ReclusteringStudies::JetHists::execute( const xAOD::Jet* jet, flo
   m_constituents_multiplicity->Fill( jet->numConstituents(), eventWeight);
   if(Width.isAvailable(*jet)) m_constituents_width->Fill( Width(*jet), eventWeight);
 
-  return EL::StatusCode::SUCCESS;
+  return StatusCode::SUCCESS;
 }

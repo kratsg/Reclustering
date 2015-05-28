@@ -83,6 +83,15 @@ EL::StatusCode StandardKinematics :: execute ()
   float eventWeight(1);
   if( decor_eventWeight.isAvailable(*eventInfo) ) eventWeight = decor_eventWeight(*eventInfo);
 
+
+    for(const xAOD::Jet *j: *in_jets){
+
+      auto vec = j->getConstituents();
+      std::cout << " cname "<< m_inputJets << "  "<< j << " size = "<< vec.size() << std::endl;
+  }
+
+
+
   // standard all jets and all bjets
   if(m_jetPlots[m_inputJets+"/jets"]->execute(in_jets, eventWeight) != EL::StatusCode::SUCCESS) return EL::StatusCode::FAILURE;
   if(m_jetHistsPlots[m_inputJets+"/jets"]->execute(in_jets, eventWeight) != EL::StatusCode::SUCCESS) return EL::StatusCode::FAILURE;
